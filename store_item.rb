@@ -5,9 +5,9 @@ orange = {
 }
 
 bell_pepper = {
-  "color" => "green",
-  "origin" => "mexico",
-  "price" => "0.35"
+  :color => "green",
+  :origin => "mexico",
+  :price => "0.35"
 }
 
 onion = {
@@ -16,4 +16,6 @@ onion = {
   "price" => "1.25"
 }
 
-p "The #{orange ['color']} from #{orange ['origin']} is $#{orange ['price']} per lb."
+p "The #{orange['color']} from #{orange['origin']} is $#{orange['price']} per lb."
+
+p "The #{bell_pepper[:color]} from #{bell_pepper[:origin]} is $#{bell_pepper[:price]} per lb."
