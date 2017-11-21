@@ -19,3 +19,5 @@ onion = {
 p "The #{orange['color']} from #{orange['origin']} is $#{orange['price']} per lb."
 
 p "The #{bell_pepper[:color]} from #{bell_pepper[:origin]} is $#{bell_pepper[:price]} per lb."
+
+p "The #{onion['color']} from #{onion['origin']} is $#{onion['price']} per lb."
