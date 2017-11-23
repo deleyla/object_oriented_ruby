@@ -24,6 +24,7 @@ employee1.print_info
 employee2.print_info
 
 class Manager < Employee
+  attr_accessor :employees
   def initialize(input_options)
     super
     @employees = input_options[:employees]
@@ -34,6 +35,17 @@ class Manager < Employee
     # use email sending library...
     puts "Email sent!"
   end
+
+  def give_all_raises
+    #get my employees
+    i = 0
+    @employees.length.times do
+      employees[i].give_annual_raise
+    end
+    # loop through them
+    # give each of them a raise
+    p 'here are the employees'
+    p employees
 end
 
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
