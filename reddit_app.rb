@@ -27,7 +27,7 @@ number_of_loops = posts_to_select_from.length
 i = 0
 number_of_loops.times do
 article_number = i.to_s
-article_title = posts_to_select_from[i]["data"]["selftext"]
+article_title = posts_to_select_from[i]["data"]["title"]
 p "#{article_number}. #{article_title}"
   i += 1
 end
