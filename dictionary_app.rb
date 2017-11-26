@@ -4,7 +4,6 @@ p "What word would you like information on?"
 
 while word = gets.chomp
   case word
-
   when "q"
     p "Thank you for using the app."
     break
