@@ -3,19 +3,17 @@
 require 'unirest'
 p "Here are the latest posts on the AdOps SubReddit"
 response = Unirest.get("https://www.reddit.com/r/adops/.json")
-post_list = response.body
 
 #List post names
+articles = response.body["data"]["children"]
 
-posts_to_select_from = post_list["data"]["children"]
-
-number_of_loops = posts_to_select_from.length
+article_length = articles.length
 
 i = 0
-number_of_loops.times do
-article_number = i.to_s
-article_title = posts_to_select_from[i]["data"]["title"]
-p "#{article_number}. #{article_title}"
+article_length.times do
+  article_number = i.to_s
+  article_title = articles[i]["data"]["title"]
+  p "#{article_number}. #{article_title}"
   i += 1
 end
 
@@ -25,21 +23,34 @@ end
 # end
 
 #Get comments from selected post
-#open url
 
-# response = Unirest.get("https://www.reddit.com/r/adops/comments/.json")
-# post_list = response.body
+p "Which article would you like to view the comments from? Please enter the article number now:"
 
-# #List post names
+user_input = gets.chomp.to_i
 
-# posts_to_select_from = post_list["data"]["children"]
+post_data = articles[user_input]
 
-# number_of_loops = posts_to_select_from.length
+#permalink
 
-# i = 1
-# number_of_loops.times do
-# article_number = i.to_s
-# article_title = posts_to_select_from[i]["data"]["link_title"]
-# p "#{article_number}. #{article_title}"
-#   i += 1
-# end
+permalink = post_data["data"]["permalink"]
+
+# p permalink
+
+comment_response = Unirest.get("https://www.reddit.com/#{permalink}/.json")
+
+comments = comment_response.body[1]["data"]["children"]
+
+comment_length = comments.length
+
+i = 0
+comment_length.times do
+  comment_number = i.to_s
+  comment_body = comments[i]["data"]["body"]
+  p "#{comment_number}. #{comment_body}"
+  i += 1
+end
+## determine how to list all the comments in that array
+#target url
+#permalink
+#add /.json to url
+#target comments within .json

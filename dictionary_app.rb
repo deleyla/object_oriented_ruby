@@ -29,7 +29,7 @@ while word = gets.chomp
 
     p "Here is how you pronounce the word you requested: " + pronunciation
   end
-p "Please enter another word or enter q to quit"
+  p "Please enter another word or enter q to quit"
 end
 
 

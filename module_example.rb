@@ -61,9 +61,9 @@ end
 
 class Car
   include Moveable
-    def honk_horn
+  def honk_horn
     puts "Beeeeeeep!"
-  end
+end
 
   def initialize
     @speed = 0
